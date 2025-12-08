@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silent Sleep - Tienda Oficial</title>
+    <style>
+        /* ESTILOS SHOPIFY MINIMALISTA */
+        :root { --text: #121212; --bg: #fff; --btn: #000; --green: #25D366; --paypal: #0070BA; }
+        * { box-sizing: border-box; } /* Importante para tamaños exactos */
+        body { margin:0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        
+        /* Layout General */
+        header { padding: 15px 30px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; background: #fff; z-index: 10; }
+        .logo-img { height: 50px; object-fit: contain; }
+        
+        .grid { max-width: 1100px; margin: 0 auto; padding: 40px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        
+        /* Imágenes */
+        .main-img { width: 100%; border-radius: 10px; border: 1px solid #eee; overflow: hidden; margin-bottom: 15px; }
+        .main-img img { width: 100%; display: block; }
+        .thumbs { display: flex; gap: 10px; }
+        .thumb { width: 70px; height: 70px; border-radius: 8px; border: 1px solid transparent; cursor: pointer; object-fit: cover; }
+        .thumb:hover { border: 2px solid #000; }
+
+        /* Textos */
+        h1 { font-size: 2.2rem; margin: 10px 0 15px; line-height: 1.1; }
+        .price { font-size: 1.5rem; margin-bottom: 20px; display: flex; gap: 15px; align-items: center; }
+        
+        /* --- ESTILOS DE LOS BOTONES (IDENTICOS) --- */
+        .btn { 
+            width: 100%;          /* Ancho total */
+            height: 55px;         /* Altura FIJA exacta */
+            display: flex;        /* Flex para centrar texto */
+            justify-content: center;
+            align-items: center;
+            
+            font-weight: 800;     /* Letra gruesa */
+            text-transform: uppercase; 
+            border: none; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            margin-bottom: 15px;  /* Espacio entre botones */
+            text-decoration: none; 
+            font-size: 0.95rem; 
+            letter-spacing: 0.5px;
+            
+            transition: transform 0.2s, opacity 0.2s; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn:hover { transform: translateY(-2px); opacity: 0.95; }
+        
+        /* Colores */
+        .btn-paypal { background: var(--paypal); color: #fff; } 
+        .btn-whatsapp { background: var(--green); color: #fff; } 
+
+        /* Acordeón */
+        details { padding: 15px 0; border-top: 1px solid #eee; cursor: pointer; }
+        summary { font-weight: 600; list-style: none; display: flex; justify-content: space-between; }
+
+        /* Reseñas */
+        .reviews-section { max-width: 1100px; margin: 0 auto 50px; padding: 20px; border-top: 1px solid #eee; }
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px; }
+        .review-card { background: #f9f9f9; padding: 25px; border-radius: 10px; }
+        .stars { color: #FFD700; font-size: 1.2rem; margin-bottom: 10px; }
+        .review-title { font-weight: bold; margin-bottom: 5px; display: block; }
+        .review-body { font-size: 0.95rem; color: #555; font-style: italic; }
+        .verified { font-size: 0.8rem; color: #888; margin-top: 15px; display: block; text-transform: uppercase; }
+
+        @media(max-width:768px){ .grid { grid-template-columns: 1fr; gap: 30px; padding: 20px; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="https://i.imgur.com/5ya51X0.jpeg" alt="Silent Sleep Logo" class="logo-img">
+        <div>🛒</div>
+    </header>
+
+    <div class="grid">
+        <div>
+            <div class="main-img">
+                <img id="zoom" src="https://i.imgur.com/byaaL6q.jpeg" alt="Producto">
+            </div>
+            <div class="thumbs">
+                <img src="https://i.imgur.com/byaaL6q.jpeg" class="thumb" onclick="ver(this.src)">
+                <img src="https://i.imgur.com/byaaL6q.jpeg" class="thumb" onclick="ver(this.src)">
+                <img src="https://i.imgur.com/byaaL6q.jpeg" class="thumb" onclick="ver(this.src)">
+            </div>
+        </div>
+
+        <div>
+            <span style="color:#666; text-transform:uppercase; font-size:0.8rem; letter-spacing:1px;">Silent Sleep Oficial</span>
+            <h1>Pack Corrector de Sueño</h1>
+            <div style="color:#FFD700; font-size:0.9rem; margin-bottom:15px;">★★★★★ (48 Reseñas)</div>
+            
+            <div class="price">
+                <span>$14.99 USD</span>
+                <span style="text-decoration:line-through; color:#999; font-size:1.1rem;">$29.99</span>
+                <span style="background:#000; color:#fff; font-size:0.7rem; padding:3px 8px; border-radius:4px;">OFERTA</span>
+            </div>
+
+            <p style="color:#555; margin-bottom:25px;">Elimina los ronquidos y despierta con energía. Material médico hipoalergénico, seguro y cómodo para usar toda la noche.</p>
+
+            <a href="https://www.paypal.com/paypalme/TU_USUARIO/14.99" target="_blank" class="btn btn-paypal">
+                💳 PAGAR CON PAYPAL - $14.99
+            </a>
+            
+            <button onclick="wsp()" class="btn btn-whatsapp">
+                💬 PEDIR POR WHATSAPP
+            </button>
+
+            <div style="margin-top:30px;">
+                <details open><summary>Descripción</summary><p style="margin-top:10px; color:#555;">Pack de 30 parches bucales diseñados para fomentar la respiración nasal y evitar la boca seca.</p></details>
+                <details><summary>Envío y Entrega</summary><p style="margin-top:10px; color:#555;">Envío discreto en 24-48 horas con número de seguimiento.</p></details>
+            </div>
+        </div>
+    </div>
+
+    <section class="reviews-section">
+        <h2 style="text-align: center;">Lo que dicen nuestros clientes</h2>
+        
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <span class="review-title">Cambió mi vida</span>
+                <p class="review-body">"Llevaba años roncando y despertando con la garganta seca. Desde la primera noche noté la diferencia. Muy recomendado."</p>
+                <span class="verified">✅ Carlos M. - Compra Verificada</span>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <span class="review-title">Súper cómodo</span>
+                <p class="review-body">"Tenía miedo de que el pegamento fuera muy fuerte, pero es muy suave y no irrita la piel. Se quita fácil en la mañana."</p>
+                <span class="verified">✅ Ana G. - Compra Verificada</span>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★☆</div>
+                <span class="review-title">Llegó rápido</span>
+                <p class="review-body">"El envío fue muy rápido y discreto. El producto funciona tal como lo anuncian. Volveré a comprar el pack grande."</p>
+                <span class="verified">✅ Roberto S. - Compra Verificada</span>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 40px; color: #999; font-size: 0.8rem; border-top: 1px solid #eee;">
+        <p>© 2025 Silent Sleep. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function ver(link){ document.getElementById('zoom').src = link; }
+        function wsp(){ 
+            // 🔴 PON TU TELÉFONO AQUÍ
+            let cel = "5210000000000"; 
+            window.open("https://wa.me/"+cel+"?text=Hola,%20quiero%20la%20oferta%20Silent%20Sleep", '_blank');
+        }
+    </script>
+</body>
+</html>
